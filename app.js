@@ -85,7 +85,7 @@ function clearScreen() {
     playerChoice = 64;
     createDivs(playerChoice);
   } else {
-    clear();
+    clearScreen();
   }
 }
 
