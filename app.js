@@ -35,33 +35,39 @@ function generateRandomHex() {
 // }
 
 container.addEventListener('click', function(e) {
-  if (e.target !== screen) {
-    if (e.target.classList.contains('rainbow')) {
-      screen.addEventListener('mouseover', function(e) {
+  if (e.target.classList.contains('rainbow')) {
+    screen.addEventListener('mouseover', function(e) {
+      if (e.target !== screen) {
         e.target.style.backgroundColor = generateRandomHex();
         rainbowBtn.style.backgroundColor = e.target.style.backgroundColor;
-      });
-      screen.addEventListener('touchmove', function(e) {
+      }
+    });
+    screen.addEventListener('touchmove', function(e) {
+      if (e.target !== screen) {
         e.target.style.backgroundColor = generateRandomHex();
         rainbowBtn.style.backgroundColor = e.target.style.backgroundColor;
-      });
-    } else if (e.target.classList.contains('gray')) {
-      rainbowBtn.style.backgroundColor = 'white';
-      screen.addEventListener('mouseover', function(e) {
+      }
+    });
+  } else if (e.target.classList.contains('gray')) {
+    rainbowBtn.style.backgroundColor = 'white';
+    screen.addEventListener('mouseover', function(e) {
+      if (e.target !== screen) {
         rainbowBtn.style.backgroundColor = 'white';
         white -= 2;
         e.target.style.backgroundColor = `hsl(0, 0%, ${white}%)`;
         if (white === 0) {
           white = 100;
         }
-      });
-    } else if (e.target.classList.contains('classic')) {
-      rainbowBtn.style.backgrounzdColor = 'white';
-      screen.addEventListener('mouseover', function(e) {
+      }
+    });
+  } else if (e.target.classList.contains('classic')) {
+    rainbowBtn.style.backgrounzdColor = 'white';
+    screen.addEventListener('mouseover', function(e) {
+      if (e.target !== screen) {
         rainbowBtn.style.backgroundColor = 'white';
         e.target.style.backgroundColor = 'black';
-      });
-    }
+      }
+    });
   }
 });
 
